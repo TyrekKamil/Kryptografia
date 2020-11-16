@@ -1,6 +1,5 @@
 def main():
-    print(multiply([1, 0, 0], [1, 0, 0]))  # 2 * 4 = 8 [ 1 0 0 0 ]
-
+    print(multiply([1, 1, 1], [1, 0]))
 
 def multiply(a, b):
     B = 2
@@ -12,7 +11,7 @@ def multiply(a, b):
     for i in range(0, len(a)):
         c = 0
         for j in range(0, len(b)):
-            tmp = a[i] * b[j] + d[i] + c
+            tmp = a[i] * b[j] + d[i+j] + c
             c, d[i+j] = Q(tmp, B)
     if c != 0:
         d.append(c)
@@ -29,6 +28,5 @@ def swap(a, b):
     a = b
     b = tmp
     return a, b
-
 
 main()

@@ -2,8 +2,9 @@ import string
 
 
 def main():
-    print(add([1, 0], [1, 0, 0]))
-
+    x = [1, 0, 0, 0, 0, 1, 1]
+    y = [1, 0, 0, 0, 0, 0, 0]
+    print(add(x, y))
 
 def add(a, b):
     if b > a:
@@ -35,5 +36,3 @@ def swap(a, b):
     a = b
     b = tmp
     return [a, b]
-
-main()

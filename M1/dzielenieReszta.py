@@ -1,9 +1,3 @@
-def main():
-    print(div([1, 0, 0], [1, 0]))  # 4/2=2 [1, 0] [0]
-    # print(div([1, 0], [1, 0, 0])) # 2/4 = 0 r 2 [0] [1,0]
-    print(div([1, 0, 0, 1, 1], [1, 1]))  # 19/3 = 6 r 1 [1, 1, 0] [1]
-
-
 def div(a, b):
     #    if b > a:
     #        return(0, a)
@@ -52,5 +46,3 @@ def optimize(x):
             break
     x = x[index:]
     return x
-
-main()
