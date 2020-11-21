@@ -1,5 +1,4 @@
-def main():
-    print(multiply([1, 1, 1], [1, 0]))
+
 
 def multiply(a, b):
     B = 2
@@ -28,5 +27,3 @@ def swap(a, b):
     a = b
     b = tmp
     return a, b
-
-main()

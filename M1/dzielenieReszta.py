@@ -46,3 +46,5 @@ def optimize(x):
             break
     x = x[index:]
     return x
+
+    

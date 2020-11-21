@@ -7,3 +7,4 @@ def toBinary(a):
 
 def makeBinary(x):
     return [int(d) for d in str(x)]
+
