@@ -1,25 +1,28 @@
-from odejmowanie import substract
+from odejmowanie import odejmij
 from mnozenieLiczb import multiply
 from dzielenieReszta import div
 from dodawanieLiczb import add
 
-def ExtendedGCD(a, b):
-    old_r, r = a, b
-    old_s, s = [1], [0]
-    old_t, t = [0], [1]
-
-    while r != [0]:
-        q = div(old_r, r)[0]
-        old_r, r = r, substract(old_r, multiply(q, r))
-        old_s, s = r, substract(old_s, multiply(q, s))
-        old_t, t = r, substract(old_t, multiply(q, t))
-    return r, s, t
-
+def egcd(a, b):
+    if a == [0]:
+        return (b, [0], [1])
+    else:
+        g, y, x = egcd(div(b,a)[1], a)
+        z = odejmij(x, multiply(div(b,a)[0],y)) 
+        #x - (b // a) * y
+        return (g, z, y)
+ 
+def modinv(a, m):
+    g, x, y = egcd(a, m)
+    if g != [1]:
+        raise Exception('modular inverse does not exist')
+    else:
+        return div(x, m)[1]
 
 
 a = [1, 0, 1, 1, 1]
 b = [1, 0, 1, 1, 1, 1]
 
-print(ExtendedGCD(a, b))
+print(egcd(a, b))
 
 

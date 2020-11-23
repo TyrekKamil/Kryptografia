@@ -7,7 +7,7 @@ def main():
     print(add(x, y))
 
 def add(a, b):
-    if b > a:
+    if len(b) > len(a):
         [a,b] = swap(a, b)
     a = a[::-1]
     b = b[::-1]
@@ -36,3 +36,6 @@ def swap(a, b):
     a = b
     b = tmp
     return [a, b]
+
+a,b=[1, 0, 0, 0, 0, 0, 1], [1, 1, 0, 1, 1, 1]
+add(a,b)

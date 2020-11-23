@@ -7,7 +7,11 @@ from szybkiePotegowanie import exp
 from czyModPJestKwad import isModSqr
 
 def main():
-    print("1. Algorytm dodawania pisemnego\n2. Algorytm mnożenia pisemnego\n3. Algorytm dzielenia z resztą\n4. Algorytm szybkiego potęgowania\n5. Algorytm sprawdzający czy reszta modulo p jest kwadratem")
+    print("1. Algorytm dodawania pisemnego")
+    print("2. Algorytm mnożenia pisemnego")
+    print("3. Algorytm dzielenia z resztą")
+    print("4. Algorytm szybkiego potęgowania")
+    print("5. Algorytm sprawdzający czy reszta modulo p jest kwadratem")
     menuOption = input()
     switcher(menuOption)
 
