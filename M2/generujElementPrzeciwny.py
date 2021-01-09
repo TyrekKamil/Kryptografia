@@ -5,6 +5,7 @@ def generujPrzeciwny(p, x, y):
 
 
 def generujMenu():
+    print("Algorytm generujący element przeciwny do zadanego\n")
     p = input("Liczba pierwsza p spełniająca warunek 3 mod 4\n")
     p = int(p)
     while (p % 4 != 3 or p < 0 or not fermat_test(p)): # warunek pod liczbę p: p = 3 mod 4

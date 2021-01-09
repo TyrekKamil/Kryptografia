@@ -17,8 +17,8 @@ def dodajPktNaKrzywej(A, B, p, x1, y1, x2, y2):
         y3 = (lam * (x1 - x3) - y1) % p
         return A, B, p, x1, y1, x2, y2, x3, y3
 
-
 def DodajPunktyMenu():
+    print("Algorytm który dodaje dwa zadane punkty na krzywej eliptycznej\n")
     p = input("Liczba pierwsza p spełniająca warunek 3 mod 4\n")
     p = int(p)
     while (p % 4 != 3 or p < 0 or not fermat_test(p)): # warunek pod liczbę p: p = 3 mod 4
@@ -61,5 +61,3 @@ def DodajPunktyMenu():
         y2 = input("Liczba y2 musi spełnić waurnek y2 < p - 1\n")
         y2 = int(y2)
     print(dodajPktNaKrzywej(A, B, p, x1, y1, x2, y2))
-
-DodajPunktyMenu()

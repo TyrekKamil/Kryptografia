@@ -1,4 +1,4 @@
-from random import randrange, getrandbits, randint
+from random import randint
 from utils import fermat_test
 
 def gen(p):
@@ -11,11 +11,10 @@ def gen(p):
             result = True
     return A, B, delta 
 
-def main():
+def generLosowejMenu():
+    print("Algorytm generujący losową krzywą eliptyczną\n")
     MAX_VALUE = 1000000000 # największa wartość p do wylosowania 
     p = 2 # wartość początkowa, aby pętla while załapała
     while not (fermat_test(p) is False and p % 4 == 3): # fermat_test z pakietu utils weryfikuje, czy liczba jest pierwsza, dodatkowo warunek p%4==3
         p = randint(1, MAX_VALUE) # losowanie dopoki nie spelni warunkow
     print(gen(p)) 
-
-main()

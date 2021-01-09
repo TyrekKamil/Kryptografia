@@ -8,6 +8,7 @@ def czyNalezy(A, B, p, x, y):
     return A, B, p, x, y, result
 
 def sprawdzCzyPktNalezy_menu(): # kolejność wpisywania danych jest inna niż zaproponowana w dokumencie - wszak A B x y jest zależne od p. 
+    print("Algorytm sprawdzający czy punkt należy do krzywej\n")
     p = input("Liczba pierwsza p spełniająca warunek 3 mod 4\n")
     p = int(p)
     while (p % 4 != 3 or p < 0 or not fermat_test(p)): # warunek pod liczbę p: p = 3 mod 4

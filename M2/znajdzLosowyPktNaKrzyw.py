@@ -12,7 +12,8 @@ def znajdzLosowyPkt(A, B, p):
     return A, B, p, x, y
 
 
-def znajdzlosowyPkt_menu(): # kolejność wpisywania danych jest inna niż zaproponowana w dokumencie - wszak A B x y jest zależne od p. 
+def znajdzlosowyPktMenu(): # kolejność wpisywania danych jest inna niż zaproponowana w dokumencie - wszak A B x y jest zależne od p. 
+    print("Algorytm znajdujący losowy punkt na krzywej eliptycznej\n")
     p = input("Liczba pierwsza p spełniająca warunek 3 mod 4\n")
     p = int(p)
     while (p % 4 != 3 or p < 0 or not fermat_test(p)): # warunek pod liczbę p: p = 3 mod 4
