@@ -2,3 +2,6 @@
 /M1/Modul_1_zadania.pdf
 /M1/.idea
 /M1/__pycache__
+*.pyc
+Jupyter/*
+*.rar
