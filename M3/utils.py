@@ -30,19 +30,6 @@ def czyNalezy(A, B, p, x, y):
     return result
 
 
-def multiple_point(x, y, n, A, B, p):
-    xq = x
-    yq = y
-    xr, yr = None, None
-    while n > 0:
-        if n % 2 == 1:
-            xr, yr = dodajPktNaKrzywej(A, B, p, xr, yr, xq, yq)
-            n -= 1
-        xq, yq = dodajPktNaKrzywej(A, B, p, xq, yq, xq, yq)
-        n = n // 2
-    return xr, yr
-
-
 def dodajPktNaKrzywej(A, B, p, x1, y1, x2, y2):
     # Przypadek P = -Q
     if (x1, y1) == (x2, ((-1*y2) % p)):
@@ -50,7 +37,7 @@ def dodajPktNaKrzywej(A, B, p, x1, y1, x2, y2):
     elif x1 is None and y1 is None:
         return x2, y2
     elif x2 is None and y2 is None:
-        return x1, y2
+        return x1, y1
     # Przypadek P != Q
     elif (x1) != (x2):
         lam = ((y2 - y1) * (pow((x2-x1) % p, -1, p))) % p
@@ -64,6 +51,8 @@ def dodajPktNaKrzywej(A, B, p, x1, y1, x2, y2):
         y3 = (lam * (x1 - x3) - y1) % p
         return x3, y3
 
+def generujPrzeciwny(p, x, y):
+    return (x % p), (-1 * y % p) 
 
 def exp(b, k, n):  # n b k -> b k n
     r = [1]

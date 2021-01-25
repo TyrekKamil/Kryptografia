@@ -1,5 +1,6 @@
 from random import randint
-from utils import generateElipcticCurve, znajdzLosowyPkt, dodajPktNaKrzywej, multiple_point
+from utils import generateElipcticCurve, znajdzLosowyPkt, dodajPktNaKrzywej
+from zad1 import wielokrotnoscPkt
 from math import sqrt
 
 
@@ -26,7 +27,7 @@ def GenerujKlucze():  # TODO czasami nie ma odwrotnosci
     xp, yp = znajdzLosowyPkt(A, B, p)
     tmpMaxX = int(p + 1 - 2 * sqrt(p))  # maksymalna wartość X
     x = randint(1, tmpMaxX)
-    xq, yq = multiple_point(xp, yp, x, A, B, p)
+    xq, yq = wielokrotnoscPkt(A, B, p, xp, yp, x)
     return A, B, xp, yp, xq, yq, x
 
 
