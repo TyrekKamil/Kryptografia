@@ -66,6 +66,19 @@ def exp(b, k, n):  # n b k -> b k n
         x = div(x, n)[1]
     return r
 
+def isModSqr(x, p):
+    if pow(x, (int(p-1)//2), p) == 1:
+        return True
+    else:
+        return False
+        
+
+def znajdzB(a, p):
+    if p % 4 == 3:
+        if isModSqr(a, p):
+            b = pow(a, int((p + 1) // 4), p)
+            return b, p - b
+    return None, None
 
 def toBinary(a):
     if isinstance(a, str):
@@ -179,3 +192,5 @@ def optimize(x):
             break
     x = x[index:]
     return x
+
+

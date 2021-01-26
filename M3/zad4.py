@@ -5,7 +5,7 @@ from zad1 import wielokrotnoscPkt
 from math import sqrt
 
 
-def szyfrujElgamal(A, B, p, xp, yp, xq, yq, M):
+def szyfrujElgamal(A, B, p, xp, yp, xq, yq, M): #TODO czasmai nie ma odwrotnosci, wyniki
     xpm = ypm = M
     y = randint(1, int(p + 1 - 2 * sqrt(p)))
     xc1, yc1 = wielokrotnoscPkt(A, B, p, xp, yp, y)
