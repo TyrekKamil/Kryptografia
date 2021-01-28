@@ -74,10 +74,9 @@ def isModSqr(x, p):
         
 
 def znajdzB(a, p):
-    if p % 4 == 3:
-        if isModSqr(a, p):
-            b = pow(a, int((p + 1) // 4), p)
-            return b, p - b
+    if isModSqr(a, p):
+        b = pow(a, int((p + 1) // 4), p)
+        return b, p - b
     return None, None
 
 def toBinary(a):

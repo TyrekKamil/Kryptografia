@@ -1,5 +1,6 @@
 from random import randint
 from utils import isModSqr, znajdzB
+from math import sqrt 
 
 kappa_default = 100
 
@@ -9,14 +10,12 @@ def decode(xpm, kappa):
 
 
 def encode(A, B, p, M, kappa=kappa_default):  # TODO y, x czasami blisskie
-    N = randint(1, int(0.05 * p)) + M
-
-    if N * kappa < p:
-        for j in range(1, kappa + 1):
+    if M <= p/kappa:
+        for j in range(0, kappa):
             x = (M * kappa + j) % p
-            f = (pow(x, 3, p) + A * x + B) % p
+            f =- (pow(x, 3, p) + A * (x) + B) % p
             if isModSqr(f, p):
-                y1, y2 = znajdzB(f, p) ##
+                y1, y2 = znajdzB(f, p)
                 if y1 > 0:
                     return x, y1, decode(x, kappa) == M
                 else:
@@ -31,4 +30,4 @@ def Zad3(A, B, p, M, kappa=kappa_default):
     return A, B, p, kappa, M, result
 
 
-print(Zad3(550887326258000, 761654032839972, 1008614860794511, 8092922464793))
+print(Zad3(165322775454904,124574101102043,233782525984873,1453869503676))

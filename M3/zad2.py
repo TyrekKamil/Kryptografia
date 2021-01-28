@@ -28,7 +28,7 @@ def GenerujKlucze():  # TODO czasami nie ma odwrotnosci
     tmpMaxX = int(p + 1 - 2 * sqrt(p))  # maksymalna wartość X
     x = randint(1, tmpMaxX)
     xq, yq = wielokrotnoscPkt(A, B, p, xp, yp, x)
-    return A, B, xp, yp, xq, yq, x
+    return A, B, p, xp, yp, xq, yq, x
 
 
 print(GenerujKlucze())
