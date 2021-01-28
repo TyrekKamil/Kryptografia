@@ -1,7 +1,7 @@
 from random import randint
 from utils import generateElipcticCurve, znajdzLosowyPkt, dodajPktNaKrzywej
 from zad1 import wielokrotnoscPkt
-from math import sqrt
+from math import sqrt, log
 
 
 def losujBit(bits):
@@ -21,14 +21,16 @@ def losujP(bits):
         return p
 
 
-def GenerujKlucze():  # TODO czasami nie ma odwrotnosci
+def GenerujKlucze(k):
     bits = 10
     A, B, p = generateElipcticCurve(losujP(bits))  # generowanie krzywej
-    xp, yp = znajdzLosowyPkt(A, B, p)
+    xq, yq = znajdzLosowyPkt(A, B, p) # Q
     tmpMaxX = int(p + 1 - 2 * sqrt(p))  # maksymalna wartość X
-    x = randint(1, tmpMaxX)
-    xq, yq = wielokrotnoscPkt(A, B, p, xp, yp, x)
-    return A, B, p, xp, yp, xq, yq, x
+    if log(tmpMaxX, 2) > k/4: # zalozenie - rzad > k/4
+        x = randint(1, tmpMaxX)
+        xp, yp = wielokrotnoscPkt(A, B, p, xq, yq, x) # P = x * q
+        return A, B, p, xq, yq, xp, yp, x
+    return None
 
 
-print(GenerujKlucze())
+#print(GenerujKlucze(8))

@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 
 
 def generateElipcticCurve(p):
@@ -193,3 +193,22 @@ def optimize(x):
     return x
 
 
+def random_prime(size):
+    maxPrime = int(2 ** size - 1)
+    primes = [i for i in range(2, maxPrime) if fermat_test(i)]
+    n = choice(primes)
+    return n
+
+
+def fermat_test(n):
+    if n == 2:
+        return True
+
+    if n % 2 == 0:
+        return False
+
+    for i in range(100):
+        a = randint(1, n-1)
+        if pow(a, n-1, n) != 1:
+            return False
+    return True
