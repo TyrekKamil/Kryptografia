@@ -21,10 +21,27 @@ def BinToHex(n):
     return DecToHex(BinToDec(n))
 
 def losujF():
-    result = []
+    result = [1]
     for i in range(0, 8):
         result.append(randint(0, 1))
+    if fermat_test("".join(str(x) for x in result)) is False:
+        losujF()
     return result
+
+
+def fermat_test(n):
+    n = int(n)
+    if n == 2:
+        return True
+
+    if n % 2 == 0:
+        return False
+
+    for i in range(1000):
+        a = randint(1, n-1)
+        if pow(a, n-1, n) != 1:
+            return False
+    return True
 
 def RandomHex():
     digit = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]

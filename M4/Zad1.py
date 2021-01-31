@@ -3,7 +3,7 @@ from utils import HexToBin, BinToHex, losujF, RandomHex
 def dodaj(xy, uw):
     xy = HexToBin(xy)
     while len(xy) < 8:
-        xy.insert(0, 0)
+        xy.insert(0, 0) # uzupelnienie tablicy do 8 znakow (zera)
     x = xy[:4]
     y = xy[4:]
 
@@ -43,5 +43,5 @@ def przykladoweWejscia():
         print(arr[0], arr[1], dodaj(arr[0], arr[1]), " Czy wynik się zgadza?", arr[2] == dodaj(arr[0], arr[1]))
 
 #przykladoweWejscia()
-#Zad1()
-#dodaj()
+Zad1()
+# #dodaj()
