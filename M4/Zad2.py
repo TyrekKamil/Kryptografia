@@ -50,4 +50,5 @@ def przykladoweWejscia():
 
         print(arr[0], xTime(arr[0], arr[2]), arr[1], " Czy wynik się zgadza?", arr[1] == xTime(arr[0], arr[2]))
 
-przykladoweWejscia()
+#przykladoweWejscia()
+#Zad2()
